@@ -194,8 +194,8 @@ Agente: "Parabens! Agora vamos entender o impacto real.
 
 <details id="en-details">
 <summary><h2 id="en" style="display:inline;">🇺🇸 English</h2></summary>
-## English
 
+## English
 ### What is this?
 
 **CTF Professor** is a cybersecurity educational environment built on the [Antigravity Kit](https://antigravity-kit.unikorn.vn) framework, originally forked from [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills).

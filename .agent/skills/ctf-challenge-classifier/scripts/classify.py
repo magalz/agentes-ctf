@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-CTF Challenge Classifier — Pattern Matching Engine
+CTF Challenge Classifier - Pattern Matching Engine
 
 Analyzes file artifacts and description keywords to produce a preliminary
 classification. Designed to support the challenge-classifier agent.
@@ -13,7 +14,6 @@ Usage:
 
 import argparse
 import os
-import struct
 import sys
 
 # === Magic Bytes Database ===
@@ -193,7 +193,7 @@ def classify_description(description: str) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="CTF Challenge Classifier — Pattern Matching Engine"
+        description="CTF Challenge Classifier - Pattern Matching Engine"
     )
     parser.add_argument(
         "file", nargs="?", help="Path to the challenge file/artifact"
@@ -207,31 +207,34 @@ def main():
     if not args.file and not args.description:
         parser.error("Provide at least a file path or --description")
 
-    print("=" * 50)
+    sep = "=" * 50
+    print(sep)
     print("  CTF Challenge Classifier")
-    print("=" * 50)
+    print(sep)
 
     # File analysis
     if args.file:
         file_result = classify_file(args.file)
-        print(f"\n📁 File: {file_result['filename']}")
+        print(f"\n[FILE] {file_result['filename']}")
         print(f"   Size: {file_result['file_size']} bytes")
         print(f"   Magic: {file_result['magic_type']}")
         print(f"   Category (magic): {file_result['magic_category']}")
         print(f"   Category (ext):   {file_result['ext_category']}")
+        if "error" in file_result:
+            print(f"   ERROR: {file_result['error']}")
 
     # Description analysis
     if args.description:
         desc_result = classify_description(args.description)
-        print(f"\n📝 Description Analysis:")
+        print(f"\n[DESCRIPTION]")
         print(f"   Category: {desc_result['category']}")
         print(f"   Confidence: {desc_result['confidence']}")
         if desc_result["scores"]:
             print(f"   All scores: {desc_result['scores']}")
 
-    print("\n" + "=" * 50)
+    print(f"\n{sep}")
     print("  Use this output to inform the classifier agent.")
-    print("=" * 50)
+    print(sep)
 
 
 if __name__ == "__main__":

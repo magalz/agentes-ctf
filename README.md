@@ -25,8 +25,8 @@ Clone o repositório e rode o instalador automático:
 git clone https://github.com/magalz/agentes-ctf.git
 cd agentes-ctf
 
-# Inicie o Gemini CLI nesta pasta:
-gemini
+# Inicie o Gemini CLI nesta pasta forçando o uso do modelo Pro (Essencial para CTFs):
+gemini --model gemini-3.0-pro
 
 # Dentro do Gemini CLI, configure o ambiente:
 /install
@@ -42,8 +42,18 @@ O modo recomendado de usar o CTF Professor é criando uma pasta para o seu desaf
 ```bash
 /start-ctf meu-pwn
 ```
+*(Você também pode simplesmente colar a URL de um desafio do CTFd, HackTheBox ou TryHackMe no `/start-ctf` para baixar os arquivos automaticamente!)*
 
 **Dica de Organização:** Use o comando `/list-ctf` a qualquer momento no terminal para ver todos os seus desafios locais, a quantidade de arquivos em cada um e o status de resolução.
+
+---
+
+## 🌟 Recursos Destacados
+
+- **Integração com Plataformas**: Conecte suas contas do **CTFd**, **HackTheBox** e **TryHackMe** (`/link-ctf`) para automatizar o download de desafios e envio de flags.
+- **Sandbox Seguro (Docker)**: Executa ferramentas agressivas (nmap, gdb, sqlmap) dentro de um contêiner Kali Linux isolado, mantendo seu PC protegido.
+- **Fluxo Pedagógico (2 Passos)**: A IA não apenas resolve; ela avalia suas respostas, corrige seus erros metodológicos e só então executa as ferramentas.
+- **Geração de Writeups**: Ao final do desafio, use `/writeup` para que o sistema documente todos os passos e gere um relatório profissional com impacto corporativo (STRIDE).
 
 ---
 
@@ -51,21 +61,23 @@ O modo recomendado de usar o CTF Professor é criando uma pasta para o seu desaf
 
 - **⚡ Performance**: Sem o overhead de interfaces gráficas pesadas.
 - **🛠️ Fluxo Nativo**: Alinhado com as ferramentas que você já usa no dia a dia de segurança.
-- **🧩 Extensível**: Integração perfeita com o Sandbox Docker e scripts locais.
+- **🧩 Extensível**: Integração perfeita com o Sandbox Docker e ferramentas locais (Notepad++, ImHex).
 - **🧠 Foco Total**: Interface puramente textual que prioriza o raciocínio socrático.
 
 ---
 
 ## 📚 Documentação Completa (Wiki)
 
-Para guias detalhados, arquitetura técnica e manuais de uso, visite nossa **Wiki**:
+Para guias detalhados, arquitetura técnica, expectativas de custos de IA e manuais de uso, visite nossa **Wiki**:
 
 1.  [**Home**](https://github.com/magalz/agentes-ctf/wiki/Home) - Visão geral e Filosofia Terminal-First.
-2.  [**Guia de Instalação**](https://github.com/magalz/agentes-ctf/wiki/Instalacao) - Configuração via Gemini CLI.
-3.  [**Manual de Comandos**](https://github.com/magalz/agentes-ctf/wiki/Como-Usar) - Como interagir com o Professor.
-4.  [**Agentes e Skills**](https://github.com/magalz/agentes-ctf/wiki/Agentes-e-Skills) - O ecossistema técnico.
-5.  [**Sandbox Kali Docker**](https://github.com/magalz/agentes-ctf/wiki/Sandbox-Docker) - Detalhes sobre o ambiente de execução.
-6.  [**Contribuindo**](https://github.com/magalz/agentes-ctf/wiki/Contribuindo) - Como expandir o sistema.
+2.  [**Guia de Instalação**](https://github.com/magalz/agentes-ctf/wiki/Instalacao) - Configuração via Gemini CLI e Sandbox.
+3.  [**Modelos e Custos**](https://github.com/magalz/agentes-ctf/wiki/Modelos-e-Custos) - *Leitura Obrigatória*: Por que usar o modelo Pro e não o Flash.
+4.  [**Ferramentas Locais**](https://github.com/magalz/agentes-ctf/wiki/Ferramentas-Locais) - Recomendações de editores de texto e hexadecimais para o Host.
+5.  [**Manual de Comandos**](https://github.com/magalz/agentes-ctf/wiki/Como-Usar) - Como interagir com o Professor e listar desafios.
+6.  [**Agentes e Skills**](https://github.com/magalz/agentes-ctf/wiki/Agentes-e-Skills) - Como o ecossistema técnico "pensa".
+7.  [**Sandbox Kali Docker**](https://github.com/magalz/agentes-ctf/wiki/Sandbox-Docker) - Detalhes sobre segurança e o ambiente de execução.
+8.  [**Contribuindo**](https://github.com/magalz/agentes-ctf/wiki/Contribuindo) - Como expandir o sistema com novas capacidades.
 
 ---
 

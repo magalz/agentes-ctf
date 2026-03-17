@@ -54,11 +54,12 @@ Para iniciar um desafio (ex: uma URL do CTFd ou um arquivo local):
 
 Para guias detalhados, arquitetura técnica e manuais de uso, visite nossa **Wiki**:
 
-1.  [**Home**](docs/wiki/Home.md) - Visão geral e Filosofia Terminal-First.
-2.  [**Guia de Instalação**](docs/wiki/Instalacao.md) - Configuração via Gemini CLI.
-3.  [**Manual de Comandos**](docs/wiki/Como-Usar.md) - Como interagir com o Professor.
-4.  [**Agentes e Skills**](docs/wiki/Agentes-e-Skills.md) - O ecossistema técnico.
-5.  [**Sandbox Kali Docker**](docs/wiki/Sandbox-Docker.md) - Detalhes sobre o ambiente de execução.
+1.  [**Home**](https://github.com/magalz/agentes-ctf/wiki/Home) - Visão geral e Filosofia Terminal-First.
+2.  [**Guia de Instalação**](https://github.com/magalz/agentes-ctf/wiki/Instalacao) - Configuração via Gemini CLI.
+3.  [**Manual de Comandos**](https://github.com/magalz/agentes-ctf/wiki/Como-Usar) - Como interagir com o Professor.
+4.  [**Agentes e Skills**](https://github.com/magalz/agentes-ctf/wiki/Agentes-e-Skills) - O ecossistema técnico.
+5.  [**Sandbox Kali Docker**](https://github.com/magalz/agentes-ctf/wiki/Sandbox-Docker) - Detalhes sobre o ambiente de execução.
+6.  [**Contribuindo**](https://github.com/magalz/agentes-ctf/wiki/Contribuindo) - Como expandir o sistema.
 
 ---
 

@@ -6,20 +6,26 @@ Configurar o **CTF Professor** é um processo automatizado, mas requer alguns pr
 
 Antes de começar, certifique-se de ter instalado:
 
-1.  **IDE de Desenvolvimento**: Recomendamos o [Antigravity IDE](https://antigravity.google) para uma experiência nativa, ou [VS Code](https://code.visualstudio.com/) com a extensão Gemini Code Assist.
-2.  **Docker**: Essencial para rodar o sandbox Kali Linux. Certifique-se de que o daemon do Docker está rodando e seu usuário tem permissão para usá-lo.
-3.  **Python 3.8+**: Necessário para rodar os scripts de orquestração localmente.
-4.  **Git**: Para clonar o repositório.
+1.  **Gemini CLI**: Ferramenta principal de interação. Instale via npm: `npm install -g @google/gemini-cli`.
+2.  **Docker**: Essencial para rodar o sandbox Kali Linux.
+3.  **Python 3.8+** e **Git**.
 
 ---
 
-## 🚀 O Comando Mágico: `/install`
+## 🚀 Método 1: Gemini CLI (Recomendado)
 
-Após clonar o repositório e abrir a pasta na sua IDE, o primeiro comando que você deve executar é:
+O **Gemini CLI** oferece a experiência mais pura e rápida. Ele detecta automaticamente a pasta `.agent/` e carrega todos os agentes e comandos.
 
-```
-/install
-```
+1. Clone o repositório: `git clone https://github.com/magalz/agentes-ctf.git`
+2. Entre na pasta: `cd agentes-ctf`
+3. Execute o Gemini: `gemini`
+4. Dentro do chat, rode a configuração automática: `/install`
+
+---
+
+## 🎨 Método 2: Antigravity IDE (Visual)
+
+Se você prefere uma interface gráfica tipo VS Code, o [Antigravity IDE](https://antigravity.google) também suporta nativamente este projeto. Basta abrir a pasta e os comandos de barra estarão disponíveis no painel de chat.
 
 ### O que o `/install` faz automaticamente?
 

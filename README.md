@@ -1,49 +1,52 @@
 # CTF Professor 🎓🛡️
 
-> **Um mentor de cibersegurança que ensina você a pensar, não apenas a encontrar a flag.**
+> **Um mentor de cibersegurança que ensina você a pensar, no terminal onde o trabalho acontece.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Language: PT-BR](https://img.shields.io/badge/Idioma-PT--BR-009c3b)](README.md)
 [![Language: EN](https://img.shields.io/badge/Language-EN-blue)](README.md)
-[![Antigravity](https://img.shields.io/badge/Powered%20by-Antigravity-red)](https://antigravity-kit.unikorn.vn)
+[![Powered by Gemini CLI](https://img.shields.io/badge/Powered%20by-Gemini%20CLI-blue)](https://github.com/google/gemini-cli)
 
-O **CTF Professor** é um sistema de agentes de IA projetado para ensinar cibersegurança através de desafios de CTF (*Capture The Flag*). Diferente de ferramentas de automação, este sistema atua como um professor socrático, guiando você pela compreensão das vulnerabilidades.
+O **CTF Professor** é um sistema de agentes de IA focado no ensino de cibersegurança através de desafios de CTF. Projetado para rodar diretamente no seu terminal via **Gemini CLI**, ele oferece uma experiência leve, poderosa e sem distrações gráficas.
 
 ---
 
-## 🚀 Quick Start (Início Rápido)
+## 🚀 Quick Start (Início Rápido via Gemini CLI)
 
 ### 1. Pré-requisitos
-- [Antigravity IDE](https://antigravity.google) (Recomendado) ou VS Code.
-- Docker instalado e rodando.
-- Python 3.8+ e Git.
+- **Docker** instalado e rodando.
+- **Python 3.8+** e **Git**.
+- **Gemini CLI** instalado (`npm install -g @google/gemini-cli`).
 
-### 2. Instalação
-Clone o repositório e execute o comando de configuração automática:
+### 2. Instalação e Configuração
+Clone o repositório e rode o instalador automático:
 
 ```bash
 git clone https://github.com/magalz/agentes-ctf.git
 cd agentes-ctf
-# No chat da IDE, digite:
+
+# Inicie o Gemini CLI nesta pasta:
+gemini
+
+# Dentro do Gemini CLI, configure o ambiente:
 /install
 ```
 
 ### 3. Comece a Aprender
-Para iniciar um desafio, basta usar o comando principal:
+Para iniciar um desafio (ex: uma URL do CTFd ou um arquivo local):
 
 ```
-/start-ctf [descrição ou anexo de arquivo]
+/start-ctf [descrição, arquivo ou URL]
 ```
 
 ---
 
-## 🔥 Funcionalidades Principais
+## 🔥 Por que usar no Terminal (Gemini CLI)?
 
-- **🧠 Método Socrático**: Aprenda através de perguntas guiadas e descoberta ativa.
-- **🐳 Sandbox Isolado**: Ambiente Kali Linux em Docker para execução segura de ferramentas.
-- **🤖 18 Agentes Especialistas**: Experts em Web, Pwn, Crypto, Forense e Malware.
-- **📈 Ciclo de 7 Fases**: Do reconhecimento à mitigação e escrita de relatórios profissionais.
-- **🌐 Bilíngue**: Suporte completo para Português (PT-BR) e Inglês (EN).
+- **⚡ Performance**: Sem o overhead de interfaces gráficas pesadas.
+- **🛠️ Fluxo Nativo**: Alinhado com as ferramentas que você já usa no dia a dia de segurança.
+- **🧩 Extensível**: Integração perfeita com o Sandbox Docker e scripts locais.
+- **🧠 Foco Total**: Interface puramente textual que prioriza o raciocínio socrático.
 
 ---
 
@@ -51,16 +54,15 @@ Para iniciar um desafio, basta usar o comando principal:
 
 Para guias detalhados, arquitetura técnica e manuais de uso, visite nossa **Wiki**:
 
-1.  [**Home**](docs/wiki/Home.md) - Visão geral e Filosofia.
-2.  [**Guia de Instalação**](docs/wiki/Instalacao.md) - Configuração passo a passo.
+1.  [**Home**](docs/wiki/Home.md) - Visão geral e Filosofia Terminal-First.
+2.  [**Guia de Instalação**](docs/wiki/Instalacao.md) - Configuração via Gemini CLI.
 3.  [**Manual de Comandos**](docs/wiki/Como-Usar.md) - Como interagir com o Professor.
-4.  [**Agentes e Skills**](docs/wiki/Agentes-e-Skills.md) - O ecossistema técnico por trás do sistema.
+4.  [**Agentes e Skills**](docs/wiki/Agentes-e-Skills.md) - O ecossistema técnico.
 5.  [**Sandbox Kali Docker**](docs/wiki/Sandbox-Docker.md) - Detalhes sobre o ambiente de execução.
 
 ---
 
 ## 🤝 Créditos e Licença
 
-- Baseado no framework [Antigravity Kit](https://antigravity-kit.unikorn.vn).
-- Fork original de [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills).
+- Baseado no framework de agentes do **Gemini CLI**.
 - Licença MIT - Sinta-se livre para usar, aprender e contribuir!

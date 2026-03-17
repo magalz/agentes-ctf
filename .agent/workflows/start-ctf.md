@@ -30,7 +30,8 @@ This workflow supports four input modes. Detect automatically which mode was use
 2. **Local Folder Detection:** If the argument matches a folder in `CTFs/`:
    - **Invoke** `.agent/scripts/ingest_local.py`.
    - **Load** description and artifact list.
-   - **Inform** the user: "Detected local CTF folder. Ingesting 'CTFs/[Folder]' artifacts..."
+   - **Initialization:** Create a `notes.md` file in the folder (if missing) to track progress.
+   - **Inform** the user: "Detected local CTF folder. Ingesting artifacts and initializing notes.md..."
 3. **URL Detection & Automated Intake:** If the user provides a URL (CTFd, HackTheBox, TryHackMe):
    - **Invoke** the `ctf-platform-bridge` skill.
    - **Fetch** challenge details via `platform_client.py`.

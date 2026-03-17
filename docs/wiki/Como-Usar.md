@@ -38,6 +38,9 @@ Use este comando para configurar suas chaves de API e tokens de acesso. Isso per
 - Baixe arquivos de anexos automaticamente para o Sandbox.
 - Submeta flags para você assim que forem encontradas.
 
+### Listar Desafios (`/list-ctf`)
+Exibe todos os desafios presentes na sua pasta `CTFs/`, mostrando a quantidade de arquivos e o status (Novo, Em Progresso ou Resolvido).
+
 ### Obter Dicas (`/hint`)
 Dicas progressivas em 3 níveis:
 1.  **Conceito**: Explicação teórica sem dar a solução.

@@ -103,6 +103,66 @@ class InstallSetup:
             logger.error(f"Failed to install libraries: {e}")
             return False
 
+    def setup_local_tools(self):
+        """Verify and suggest local tools for CTF on the host."""
+        logger.info("\n--- Local Toolchain Verification (Host) ---")
+        logger.info("Checking for recommended lightweight tools for CTF analysis...")
+        
+        env_path = self.project_root / ".env"
+        env_content = []
+        if env_path.exists():
+            with open(env_path, 'r') as f:
+                env_content = f.readlines()
+        
+        new_env_values = {}
+        
+        # 1. Notepad++
+        npp_path = shutil.which("notepad++") or os.path.exists("C:\\Program Files\\Notepad++\\notepad++.exe")
+        if npp_path:
+            logger.info("✅ Notepad++: Found.")
+            new_env_values["HAS_NOTEPADPP"] = "true"
+        else:
+            logger.warning("❌ Notepad++: Not found. (Recommended for large files, Hex/Base64/JSON plugins)")
+            if sys.platform == "win32":
+                logger.info("   -> Install via winget: winget install Notepad++.Notepad++")
+            
+        # 2. Hex Editor
+        hex_editor = shutil.which("imhex") or shutil.which("hxd") or os.path.exists("C:\\Program Files\\ImHex\\imhex.exe")
+        if hex_editor:
+            logger.info("✅ Hex Editor (ImHex/HxD): Found.")
+            new_env_values["HAS_HEXEDITOR"] = "true"
+        else:
+            logger.warning("❌ Dedicated Hex Editor: Not found. (Recommended for Pwn/Forensics)")
+            if sys.platform == "win32":
+                logger.info("   -> Install ImHex: winget install WerWolv.ImHex")
+                
+        # 3. CyberChef
+        has_cc = input("Do you have CyberChef downloaded locally? (y/n): ").strip().lower() == 'y'
+        if has_cc:
+             new_env_values["HAS_CYBERCHEF"] = "true"
+             logger.info("✅ CyberChef: Confirmed.")
+        else:
+             logger.info("💡 Tip: Download CyberChef HTML locally to avoid uploading sensitive data to the web:")
+             logger.info("   -> https://github.com/gchq/CyberChef/releases")
+
+        # Update .env
+        with open(env_path, 'w') as f:
+            for line in env_content:
+                if '=' in line:
+                    k = line.split('=')[0]
+                    if k not in new_env_values:
+                        f.write(line)
+            for k, v in new_env_values.items():
+                f.write(f"{k}={v}\n")
+                
+        # Gemini Editor Tip
+        logger.info("\n🛠️  Gemini CLI Editor Tip:")
+        logger.info("To make Notepad++ your default editor for Gemini CLI, set the EDITOR environment variable:")
+        if sys.platform == "win32":
+            logger.info('   [Environment]::SetEnvironmentVariable("EDITOR", "C:\\Program Files\\Notepad++\\notepad++.exe", "User")')
+        else:
+            logger.info('   export EDITOR="notepad++"')
+
     def setup_ctf_platforms(self):
         """Guide the user through linking CTF platforms."""
         env_path = self.project_root / ".env"
@@ -194,7 +254,10 @@ class InstallSetup:
             return False
         logger.info(f"✅ Docker image '{self.image_name}' is ready.")
 
-        # 4. CTF Platforms
+        # 4. Local Tools
+        self.setup_local_tools()
+
+        # 5. CTF Platforms
         self.setup_ctf_platforms()
 
         logger.info("\n✨ Environment setup completed successfully! ✨")

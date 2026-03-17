@@ -119,6 +119,13 @@ When auto-applying an agent, inform the user:
 - Workflows: `.agent/workflows/`
 - Runtime Scripts: `.agent/skills/<skill>/scripts/`
 
+### 🧰 Local Tool Awareness
+
+> **MANDATORY:** When suggesting text manipulation, encoding/decoding, or binary analysis on the user's host machine, check the `.env` file for their capabilities (`HAS_NOTEPADPP`, `HAS_HEXEDITOR`, `HAS_CYBERCHEF`). 
+- If `HAS_NOTEPADPP=true`, explicitly suggest using it and its plugins (e.g., MIME Tools, HEX-Editor).
+- If `HAS_CYBERCHEF=true`, suggest building a local recipe.
+- Avoid suggesting heavy IDEs like VS Code unless specifically requested.
+
 ### 🧠 Read → Understand → Apply
 
 ```

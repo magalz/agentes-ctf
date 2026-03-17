@@ -44,7 +44,14 @@ $ARGUMENTS
 
 1. **Check** if `mcp_config.json` needs any local path updates.
 
-### Step 6: CTF Platform Connection (Optional)
+### Step 6: Local Toolchain (Host)
+
+1. **Verify** essential local text and hex editors (Notepad++, ImHex/HxD, CyberChef).
+2. **Suggest Installation:** If the user is missing them, the script will provide download links or `winget` commands.
+3. **Configure Editor:** Guide the user to set their default Gemini CLI editor (`EDITOR` env var).
+4. **Save State:** Record the installed tools in `.env` so agents can provide context-aware hints.
+
+### Step 7: CTF Platform Connection (Optional)
 
 1. **Link** your CTF accounts to enable automated challenge intake and flag submission.
 2. **Select Platform:**
@@ -54,7 +61,7 @@ $ARGUMENTS
 3. **Guidance:** The agent will provide step-by-step instructions on where to find these tokens for each platform.
 4. **Storage:** Credentials are saved securely in a local `.env` file (ignored by Git).
 
-### Step 7: Completion
+### Step 8: Completion
 
 1. **Confirm** that the user is ready to start their first CTF session with `/start-ctf`.
 

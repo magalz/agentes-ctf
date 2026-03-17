@@ -2,15 +2,17 @@
 
 O **CTF Professor** utiliza IAs de fronteira (Large Language Models) para analisar binários, interagir com o terminal e atuar como seu mentor socrático. Escolher o modelo certo é a diferença entre uma experiência de aprendizado incrível e horas de frustração.
 
+O Gemini CLI atualmente suporta as gerações mais recentes: **Gemini 3.0** e **Gemini 2.5**.
+
 ---
 
 ## 🏆 A Regra de Ouro: Use Sempre o Modelo "Pro"
 
-Para 99% das tarefas de cibersegurança neste projeto, **recomendamos expressamente o uso de modelos da classe "Pro"** (ex: `gemini-1.5-pro` ou equivalente de ponta).
+Para 99% das tarefas de cibersegurança neste projeto, **recomendamos expressamente o uso de modelos da classe "Pro"** (ex: `gemini-3.0-pro` ou `gemini-2.5-pro`).
 
 ### Por que não usar o modelo "Flash" ou "Mini"?
 
-Embora modelos como o *Gemini 1.5 Flash* sejam incrivelmente rápidos e quase gratuitos, eles falham em cenários críticos de segurança:
+Embora modelos como o *Gemini 2.5 Flash* sejam incrivelmente rápidos e quase gratuitos, eles falham em cenários críticos de segurança:
 
 1.  **Engenharia Reversa e Pwn**: Modelos menores não conseguem manter o contexto complexo de registradores, *ROP chains* ou leitura de código Assembly profundo.
 2.  **Alucinação de Comandos**: O Flash tende a "inventar" flags de linha de comando que não existem (ex: `nmap --scan-all-vulns`), resultando em erros e perda de tempo no terminal.
@@ -24,10 +26,10 @@ Embora modelos como o *Gemini 1.5 Flash* sejam incrivelmente rápidos e quase gr
 
 Você define qual modelo deseja usar na hora de iniciar o programa no seu terminal.
 
-Se você iniciar apenas com `gemini`, ele pode assumir um modelo padrão. Para forçar o uso do modelo Pro (Recomendado), inicie a CLI com a flag `--model`:
+Se você iniciar apenas com `gemini`, ele pode assumir um modelo padrão (frequentemente o Flash). Para forçar o uso do modelo Pro de última geração (Recomendado), inicie a CLI com a flag `--model`:
 
 ```bash
-gemini --model gemini-1.5-pro
+gemini --model gemini-3.0-pro
 ```
 
 *(Dica: Você pode criar um `alias` no seu bashrc/zshrc para não ter que digitar isso toda vez).*
@@ -42,8 +44,8 @@ O uso de IAs através de API tem custos. Aqui está uma visão honesta de como i
 
 ### Opção 1: Uso Gratuito (Free Tier)
 O Google AI Studio oferece uma cota **gratuita** muito generosa para desenvolvedores:
-*   **Gemini 1.5 Pro**: Até 50 requisições por dia.
-*   **Gemini 1.5 Flash**: Até 1.500 requisições por dia.
+*   **Gemini 3.0 Pro** / **Gemini 2.5 Pro**: Até 50 requisições por dia.
+*   **Gemini 2.5 Flash**: Até 1.500 requisições por dia.
 
 **Para estudantes**: A cota de 50 requests/dia do modelo Pro geralmente é mais que suficiente para resolver de 2 a 3 CTFs completos por dia de forma guiada, sem gastar um centavo.
 

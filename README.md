@@ -33,10 +33,14 @@ gemini
 ```
 
 ### 3. Comece a Aprender
-Para iniciar um desafio (ex: uma URL do CTFd ou um arquivo local):
+O modo recomendado de usar o CTF Professor é criando uma pasta para o seu desafio:
 
-```
-/start-ctf [descrição, arquivo ou URL]
+1.  Crie uma subpasta em `CTFs/` (ex: `CTFs/meu-pwn/`).
+2.  Coloque os arquivos do desafio (binários, fontes, descrição) lá dentro.
+3.  No Gemini CLI, inicie o desafio pelo nome da pasta:
+
+```bash
+/start-ctf meu-pwn
 ```
 
 ---

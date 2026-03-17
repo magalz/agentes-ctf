@@ -8,7 +8,6 @@ __pycache__/
 # npm pack artifacts
 antigravity-awesome-skills-*.tgz
 
-.agent/rules/
 .gemini/
 data/node_modules
 

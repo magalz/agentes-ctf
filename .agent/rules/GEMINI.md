@@ -53,6 +53,7 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 | **CTF SESSION** | `/start-ctf`, `/hint`, `/classify-challenge`, `/analyze-binary` | Slash Command Flow |
 | **WRITEUP** | `/writeup`, `/threat-model` | Documentation Flow |
 | **COMPLEX CODE** | "build", "create", "implement" | Task Planning |
+| **TOOL DEVELOPMENT** | "change the agent", "modify GEMINI.md", "create a new agent" | 🛑 SAFEGUARD WARNING |
 | **EXPLANATION** | `/explain-vulnerability` | Educational Flow |
 
 ---
@@ -125,6 +126,17 @@ When auto-applying an agent, inform the user:
 - If `HAS_NOTEPADPP=true`, explicitly suggest using it and its plugins (e.g., MIME Tools, HEX-Editor).
 - If `HAS_CYBERCHEF=true`, suggest building a local recipe.
 - Avoid suggesting heavy IDEs like VS Code unless specifically requested.
+
+### 🛡️ Execution Environment Restriction (Global Mandatory)
+
+**NEVER execute unknown binaries, malware, or CTF artifacts directly on the Windows host.**
+You MUST execute all analysis tasks, binary execution, and malware handling within the **Linux environment (ctf-sandbox Docker container)** unless explicitly instructed otherwise for a valid Windows-specific reason. The goal is to manipulate artifacts safely from the very beginning.
+
+### ⚠️ Tool Modification Safeguard (Global Mandatory)
+
+If the user requests structural changes to the learning environment itself (e.g., creating/modifying agents, rules, skills, or `GEMINI.md`), you MUST halt and present a safeguard warning:
+"⚠️ **Structural Change Warning**: You are about to make changes to the tool's core structure (agents/skills/rules). Are you sure you wish to proceed?"
+Wait for explicit confirmation before proceeding. Once confirmed, you MUST refer to `.agent/rules/DEVELOPMENT.md` for context.
 
 ### 🧠 Read → Understand → Apply
 

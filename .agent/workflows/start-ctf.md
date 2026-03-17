@@ -72,8 +72,9 @@ This workflow supports four input modes. Detect automatically which mode was use
 ### Step 5: Review & Mitigation (Upon Flag Capture)
 
 - Orchestrate with `ctf-writeup-architect` skill.
-- Consolidate the session history and successful commands into the `writeup_base.md` template.
-- Detail the real-world enterprise impact and mitigation strategies.
+- **Present the Flag**: Explicitly show the captured flag to the user.
+- **Submission**: Instruct the user to submit it on the CTF platform (or offer to do it via `platform_client.py` if configured).
+- **Next Step**: Explicitly suggest running `/writeup [Folder_Name]` to generate a professional report of the session, detailing real-world enterprise impact and mitigation strategies.
 
 ---
 

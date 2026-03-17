@@ -19,15 +19,28 @@ def list_ctfs():
         print("No challenges found in 'CTFs/'.")
         return
 
-    print(f"\n{'Challenge Name':<25} | {'Artifacts':<10} | {'Status'}")
-    print("-" * 55)
+    print(f"\n{'Challenge Name':<25} | {'Artifacts':<10} | {'Status':<15} | {'Flag'}")
+    print("-" * 75)
 
     for folder in folders:
         files = list(folder.iterdir())
         artifact_count = len([f for f in files if f.is_file()])
         
         # Check for flags or notes
-        has_flag = any("flag" in f.name.lower() for f in files)
+        flag_content = "-"
+        has_flag = False
+        
+        for f in files:
+            if "flag" in f.name.lower() and f.is_file():
+                has_flag = True
+                try:
+                    content = f.read_text(encoding='utf-8').strip()
+                    # Truncate flag if too long
+                    flag_content = content[:20] + "..." if len(content) > 20 else content
+                except:
+                    flag_content = "[Binary/Unreadable]"
+                break
+                
         has_notes = (folder / "notes.md").exists()
         
         status = "🆕 New"
@@ -36,7 +49,7 @@ def list_ctfs():
         if has_flag:
             status = "🏁 Solved"
 
-        print(f"{folder.name:<25} | {artifact_count:<10} | {status}")
+        print(f"{folder.name:<25} | {artifact_count:<10} | {status:<15} | {flag_content}")
     print()
 
 if __name__ == "__main__":

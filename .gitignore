@@ -37,3 +37,31 @@ validation-baseline.json
 # Web app generated assets (from npm run app:setup)
 apps/web-app/public/skills/
 apps/web-app/public/skills.json
+
+# --- CTF Professor Specific ---
+
+# Security: Never commit environment variables and secrets
+.env
+.env.local
+.env.*
+
+# Local Challenge Workspace
+# We ignore everything inside CTFs/ to prevent leaking challenge binaries, 
+# memory dumps, or solved flags, but we keep the folder structure if needed.
+CTFs/*
+!CTFs/.gitkeep
+
+# Ignore common CTF artifacts that might be dropped in the root by accident
+*.pcap
+*.pcapng
+*.dmp
+*.vmem
+*.raw
+*.elf
+*.bin
+*.exe
+*.dll
+*.apk
+# Ignore flag files that might be accidentally created in root
+flag.txt
+flag

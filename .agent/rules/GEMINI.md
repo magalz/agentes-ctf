@@ -127,10 +127,19 @@ When auto-applying an agent, inform the user:
 - If `HAS_CYBERCHEF=true`, suggest building a local recipe.
 - Avoid suggesting heavy IDEs like VS Code unless specifically requested.
 
-### 🛡️ Execution Environment Restriction (Global Mandatory)
+### 🛡️ Execution Environment Restriction (Global Mandatory — ZERO EXCEPTIONS)
 
-**NEVER execute unknown binaries, malware, or CTF artifacts directly on the Windows host.**
-You MUST execute all analysis tasks, binary execution, and malware handling within the **Linux environment (ctf-sandbox Docker container)** unless explicitly instructed otherwise for a valid Windows-specific reason. The goal is to manipulate artifacts safely from the very beginning.
+**ALL CTF analysis, tool execution, and artifact inspection MUST run inside the `ctf-sandbox` Kali Linux Docker container. NO EXCEPTIONS.**
+
+| Rule | Detail |
+|:---|:---|
+| **Scope** | Every command, script, binary, or tool used in a CTF session |
+| **Applies even if** | The user has `strings`, `gdb`, `python`, `nmap`, or ANY tool installed on Windows |
+| **Windows host** | Read-only staging: copy files FROM host TO sandbox, never execute on host |
+| **No override exists** | The user cannot grant an exception to this rule mid-session |
+| **Enforcement** | If a Windows-side execution is detected or suggested, the agent MUST redirect to the sandbox immediately |
+
+> 🔴 **RATIONALE**: Host isolation is non-negotiable. Running CTF artifacts on the Windows host risks contamination, environment-specific behavior, and loss of pedagogical reproducibility. The sandbox always wins.
 
 ### ⚠️ Tool Modification Safeguard (Global Mandatory)
 

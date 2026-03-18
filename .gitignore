@@ -65,3 +65,5 @@ CTFs/*
 # Ignore flag files that might be accidentally created in root
 flag.txt
 flag
+.aider*
+.clinerules

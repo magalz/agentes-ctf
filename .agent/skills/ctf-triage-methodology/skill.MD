@@ -15,6 +15,7 @@ Your goal in the triage phase is not to find the vulnerability, but to understan
 | Principle | Enforcement |
 | :--- | :--- |
 | **No Blind Execution** | Never run `./binary` or open a file without first identifying its true nature (magic bytes). |
+| **No Interactive Hanging** | When extracting archives (zip, tar, etc.), NEVER use commands that block waiting for a password if the password is unknown (e.g. basic `unzip`). Always use non-interactive flags (e.g., `unzip -P ''`, `7z x -p''`) to fail fast, or use `zipinfo` / `7z l` to check if the archive is encrypted before extracting. Password-protected files are often part of the challenge! |
 | **Socratic Inquiry** | Ask the student what the challenge description implies before providing your own analysis. |
 | **Surface First** | Exhaust static analysis (strings, metadata, headers) before moving to dynamic analysis. |
 | **Context is King** | Connect the initial findings to real-world scenarios (e.g., "Why would a developer leave this port open?"). |

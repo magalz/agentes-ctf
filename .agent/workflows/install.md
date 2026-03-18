@@ -28,12 +28,11 @@ $ARGUMENTS
 
 ### Passo 3: Configuração de Dependências Python
 
-1. **Verifique** se faltam bibliotecas Python usadas pelo sistema:
+1. **Verifique** se faltam bibliotecas Python usadas pelo sistema local (host):
    - `mcp` / `fastmcp` (para o servidor do sandbox)
-   - `pwntools` (recomendado para desafios de Pwn)
-   - `requests` (para desafios Web)
 2. **Ofereça** para instalar dependências ausentes:
-   - Comando: `pip install mcp fastmcp pwntools requests`
+   - Comando: `pip install mcp fastmcp`
+   - *Nota:* Ferramentas de exploração (como `pwntools`, `requests`, etc.) NÃO devem ser instaladas no host. Elas são exclusivas do contêiner Kali Linux.
 
 ### Passo 4: Verificação do Sistema
 
